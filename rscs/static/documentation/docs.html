@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webserv Project Documentation</title>
+</head>
+<body>
+    <button class="home-button" onclick="location.href='/'">Home</button>
+    <header>
+        <h1>Webserv Project Documentation</h1>
+    </header>
+    <main>
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>
+                Webserv is a server-side application designed to handle HTTP requests and responses. 
+                Its modular architecture provides flexibility for configuration, error handling, logging, and CGI integration.
+            </p>
+        </section>
+        <section id="directory-structure">
+            <h2>Directory Structure</h2>
+            <pre>
+├── src
+│   ├── CGI
+│   │   ├── Cgi.cpp
+│   │   └── Cgi.hpp
+│   ├── DirectoryHandler.cpp
+│   ├── DirectoryHandler.hpp
+│   ├── ErrorHandler.cpp
+│   ├── ErrorHandler.hpp
+│   ├── HttpRequestDir.cpp
+│   ├── HttpRequestHandler.cpp
+│   ├── HttpRequestHandler.hpp
+│   ├── HttpRequestLocUtils.cpp
+│   ├── HttpRequestParsing.cpp
+│   ├── HttpRequestUtils.cpp
+│   ├── HttpResponseHandler.cpp
+│   ├── HttpResponseHandler.hpp
+│   ├── HttpResponseMethod.cpp
+│   ├── HttpResponseUtils.cpp
+│   ├── Logger.cpp
+│   ├── Logger.hpp
+│   ├── RequestResponseState.cpp
+│   ├── RequestResponseState.hpp
+│   ├── ServerBase.cpp
+│   ├── ServerBase.hpp
+│   ├── ServerHandler.cpp
+│   ├── ServerHandler.hpp
+│   ├── configuration_file_parsing
+│   │   ├── config_parser
+│   │   │   ├── ConfigException.hpp
+│   │   │   ├── ConfigParser.cpp
+│   │   │   ├── ConfigParser.hpp
+│   │   │   ├── ConfigParserUtils.cpp
+│   │   │   └── DirectiveParser.cpp
+│   │   ├── server_config
+│   │   │   ├── ADirective.cpp
+│   │   │   ├── ADirective.hpp
+│   │   │   ├── LocationBlock.cpp
+│   │   │   ├── LocationBlock.hpp
+│   │   │   ├── ServerBlock.cpp
+│   │   │   ├── ServerBlock.hpp
+│   │   │   ├── ServerConfig.cpp
+│   │   │   └── ServerConfig.hpp
+│   │   └── utils
+│   │       ├── PathValidator.cpp
+│   │       ├── PathValidator.hpp
+│   │       ├── TokenCounter.cpp
+│   │       └── TokenCounter.hpp
+            </pre>
+        </section>
+        <section id="components">
+            <h2>Key Components</h2>
+            <ul>
+                <li>
+                    <strong>CGI:</strong> Handles Common Gateway Interface-related operations, including request execution (Cgi.cpp, Cgi.hpp).
+                </li>
+                <li>
+                    <strong>DirectoryHandler:</strong> Manages directory operations like browsing and serving directory content (DirectoryHandler.cpp, DirectoryHandler.hpp).
+                </li>
+                <li>
+                    <strong>ErrorHandler:</strong> Centralized error reporting and response generation (ErrorHandler.cpp, ErrorHandler.hpp).
+                </li>
+                <li>
+                    <strong>HttpRequestHandler:</strong> Parses and processes HTTP requests, delegates to utility functions (HttpRequestHandler.*).
+                </li>
+                <li>
+                    <strong>HttpResponseHandler:</strong> Generates HTTP responses based on the request and server state (HttpResponseHandler.*).
+                </li>
+                <li>
+                    <strong>Logger:</strong> Implements logging functionality for debugging and monitoring (Logger.cpp, Logger.hpp).
+                </li>
+                <li>
+                    <strong>Configuration Parsing:</strong> Handles server configuration parsing:
+                    <ul>
+                        <li><strong>ConfigParser:</strong> Parses the configuration file.</li>
+                        <li><strong>ServerConfig:</strong> Represents server and location block configurations.</li>
+                        <li><strong>Utils:</strong> Provides utilities like path validation and token counting.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Webserv Project</p>
+    </footer>
+</body>
+</html>

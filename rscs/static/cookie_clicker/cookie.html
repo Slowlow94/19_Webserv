@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Cookie Clicker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #cookie {
+            width: 200px;
+            cursor: pointer;
+        }
+        #score {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button class="home-button" onclick="location.href='/'">Home</button>
+    <h1>Cookie Clicker</h1>
+    <img id="cookie" src="/static/cookie_clicker/cookie.jpg">
+    <div id="score">Score: 0</div>
+    <button id="rst-btn">Reset</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let score = 0;
+    
+            const cookie = document.getElementById('cookie');
+            const scoreDisplay = document.getElementById('score');
+            const rstBtn = document.getElementById('rst-btn');
+    
+            // Fetch score from cookies
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return "0";
+            }
+    
+            // Update score
+            function updateScore(newScore) {
+                score = newScore;
+                scoreDisplay.textContent = `Score: ${score}`;
+                document.cookie = `score=${score}; path=/;`;
+            }
+    
+            // Initialize score
+            score = parseInt(getCookie('score'), 10);
+            updateScore(score);
+    
+            // Increment score on cookie click
+            cookie.addEventListener('click', () => {
+                updateScore(score + 1);
+            });
+            
+            rstBtn.addEventListener('click', () => {
+                updateScore(0);
+            });
+            
+
+        });
+    </script>
+    
+</body>
+</html>
